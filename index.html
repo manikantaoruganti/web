@@ -1,100 +1,135 @@
-/* Global styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manikanta's Profiles</title>
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-/* Moving winter background */
-body {
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-}
+        /* Winter-themed moving background */
+        body {
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1e3c72; /* Winter blue color */
+            background: linear-gradient(to right, #1e3c72, #2a5298); /* Gradient winter sky */
+            animation: movingBackground 20s ease infinite;
+        }
 
-.background {
-    background: linear-gradient(to bottom, #2c3e50, #34495e);
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: snow 10s linear infinite;
-}
+        /* Animation for the background */
+        @keyframes movingBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-@keyframes snow {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
-}
+        /* Snowfall effect */
+        .snowflakes {
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            font-size: 30px;
+            color: white;
+            animation: snow 5s linear infinite;
+        }
 
-/* Content styling */
-.content {
-    text-align: center;
-    color: white;
-    z-index: 1;
-}
+        @keyframes snow {
+            0% { top: -10%; }
+            100% { top: 100%; }
+        }
 
-h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-}
+        /* Content box */
+        .content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            position: relative;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6); /* Slight black background to make text readable */
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
 
-p {
-    font-size: 1.2em;
-    margin-bottom: 2em;
-}
+        /* Title and description */
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 2px;
+        }
 
-/* Button styling */
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
 
-.button {
-    text-decoration: none;
-    padding: 15px 30px;
-    margin: 10px;
-    background: linear-gradient(45deg, #ff6ec7, #ff9a8b);
-    color: white;
-    font-size: 1.2em;
-    border-radius: 30px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: inline-block;
-}
+        /* Button container */
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
 
-.button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
+        /* Button styles */
+        .button {
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 1.3em;
+            background: linear-gradient(135deg, #f7797d, #fceabb); /* Colorful gradient background */
+            color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+        }
 
-.button:active {
-    transform: scale(1.05);
-}
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #fceabb, #f7797d);
+        }
 
-.button:focus {
-    outline: none;
-}
+        .button:active {
+            transform: translateY(2px);
+        }
 
-/* Snowfall effect */
-@keyframes snowfall {
-    0% {
-        top: -10%;
-    }
-    100% {
-        top: 100%;
-    }
-}
+        .button:focus {
+            outline: none;
+        }
 
-.snowflakes {
-    position: absolute;
-    top: -10%;
-    left: 50%;
-    animation: snowfall 5s linear infinite;
-    font-size: 2em;
-    color: white;
-}
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="content">
+            <h1>Hello, I am Manikanta</h1>
+            <p>You can visit my profiles here:</p>
+            <div class="buttons">
+                <a href="https://profiles.topcoder.com/manikanta_1" class="button">Topcoder</a>
+                <a href="https://atcoder.jp/users/manikanta_01" class="button">Atcoder</a>
+                <a href="https://www.geeksforgeeks.org/user/orugantimanikanta/" class="button">GeeksforGeeks</a>
+                <a href="https://leetcode.com/u/orugantimanikan1/" class="button">Leetcode</a>
+                <a href="https://www.hackerrank.com/profile/orugantimanikan1" class="button">Hackerrank</a>
+                <a href="https://codeforces.com/profile/orugantimanikanta" class="button">Codeforces</a>
+                <a href="https://www.codechef.com/users/mani24022005" class="button">Codechef</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
