@@ -5,123 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manikanta's Profile</title>
     <style>
+        /* General styles */
         body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to top, #1f3c5b, #6c8dc5);
+            background: url('https://via.placeholder.com/1920x1080.png?text=Winter+Background') no-repeat center center fixed;
+            background-size: cover;
             color: #fff;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
+            text-align: center;
         }
 
-        h1 {
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header h1 {
             font-size: 3em;
-            text-align: center;
-            margin-top: 20%;
+            margin: 0.5em 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .profile-btn {
+            background-color: #1e90ff;
             color: #fff;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .intro-text {
-            font-size: 1.5em;
-            text-align: center;
-            margin-top: 10px;
+        .profile-btn:hover {
+            background-color: #4682b4;
         }
 
-        .profiles-container {
-            text-align: center;
+        .profiles {
+            display: none;
             margin-top: 30px;
         }
 
-        .button {
-            background: linear-gradient(45deg, #ff4b2b, #ff416c);
-            border: none;
-            color: white;
-            padding: 16px 30px;
-            text-align: center;
-            font-size: 18px;
-            margin: 10px 15px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        .button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        li {
+            margin: 10px 0;
         }
 
-        .profiles-container a {
-            color: white;
+        .profile-link {
             text-decoration: none;
-            display: inline-block;
-            margin: 10px 15px;
-            font-size: 18px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            font-size: 1.5em;
+            color: #ff6347;
+            transition: color 0.3s ease;
         }
 
-        .profiles-container a:hover {
-            color: #ff4b2b;
-            text-decoration: underline;
-        }
-
-        .snow {
-            position: absolute;
-            top: -10px;
-            color: #fff;
-            font-size: 2em;
-            user-select: none;
-            animation: fall 4s linear infinite;
-            opacity: 0.8;
-            pointer-events: none;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
+        .profile-link:hover {
+            color: #ff4500;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Hello, I'm Manikanta!</h1>
-        <p class="intro-text">You can visit my profiles here:</p>
-
-        <div class="profiles-container">
-            <button class="button" onclick="window.location.href='https://profiles.topcoder.com/manikanta_1'">Topcoder</button>
-            <button class="button" onclick="window.location.href='https://atcoder.jp/users/manikanta_01'">Atcoder</button>
-            <button class="button" onclick="window.location.href='https://www.geeksforgeeks.org/user/orugantimanikanta/'">GeeksforGeeks</button>
-            <button class="button" onclick="window.location.href='https://leetcode.com/u/orugantimanikan1/'">Leetcode</button>
-            <button class="button" onclick="window.location.href='https://www.hackerrank.com/profile/orugantimanikan1'">Hackerrank</button>
-            <button class="button" onclick="window.location.href='https://codeforces.com/profile/orugantimanikanta'">Codeforces</button>
-            <button class="button" onclick="window.location.href='https://www.codechef.com/users/mani24022005'">Codechef</button>
+        <header>
+            <h1>Welcome, I'm Manikanta</h1>
+            <p>Visit my profiles below:</p>
+            <button class="profile-btn" id="profile-btn">Profiles</button>
+        </header>
+        
+        <div class="profiles" id="profiles-section">
+            <ul>
+                <li><a href="https://profiles.topcoder.com/manikanta_1" class="profile-link">TopCoder</a></li>
+                <li><a href="https://atcoder.jp/users/manikanta_01" class="profile-link">AtCoder</a></li>
+                <li><a href="https://www.geeksforgeeks.org/user/orugantimanikanta/" class="profile-link">GeeksforGeeks</a></li>
+                <li><a href="https://leetcode.com/u/orugantimanikan1/" class="profile-link">LeetCode</a></li>
+                <li><a href="https://www.hackerrank.com/profile/orugantimanikan1" class="profile-link">HackerRank</a></li>
+                <li><a href="https://codeforces.com/profile/orugantimanikanta" class="profile-link">Codeforces</a></li>
+                <li><a href="https://www.codechef.com/users/mani24022005" class="profile-link">CodeChef</a></li>
+            </ul>
         </div>
     </div>
 
     <script>
-        // Create snowdrop animation effect
-        function createSnowdrops() {
-            const numSnowdrops = 70; // Number of snowdrops
-            for (let i = 0; i < numSnowdrops; i++) {
-                const snowdrop = document.createElement('div');
-                snowdrop.classList.add('snow');
-                snowdrop.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-                snowdrop.style.animationDuration = `${Math.random() * 5 + 5}s`; // Random duration
-                snowdrop.style.animationDelay = `${Math.random() * 3}s`; // Random delay
-                snowdrop.innerHTML = '❄'; // Snowdrop character
-                document.body.appendChild(snowdrop);
-            }
-        }
-
-        createSnowdrops();
+        document.getElementById("profile-btn").addEventListener("click", function() {
+            const profilesSection = document.getElementById("profiles-section");
+            profilesSection.style.display = profilesSection.style.display === "block" ? "none" : "block";
+        });
     </script>
-
 </body>
 </html>
