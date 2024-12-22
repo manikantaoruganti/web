@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
+    <title>My Coding Journey</title>
     <style>
-        /* Create a beautiful moving background using a gradient animation */
+        /* Winter-themed moving background */
         body, html {
             height: 100%;
             margin: 0;
@@ -14,34 +14,33 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(45deg, #ff6a00, #ee0979, #ff00ff, #6a00ff);
-            background-size: 400% 400%;
-            animation: gradientMove 15s ease infinite;
+            background: linear-gradient(to bottom, #74ebd5, #acb6e5);
+            overflow: hidden;
+        }
+        
+        canvas.snow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
-        /* Keyframes for the background animation */
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Center the content with a transparent background and some styling */
+        /* Main content styling */
         .content {
             text-align: center;
             color: white;
             z-index: 2;
         }
 
-        /* Heading styling */
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
         }
 
-        /* Button styling */
         .button {
-            background-color: #ff0077;
+            background-color: #0077ff;
             color: white;
             padding: 15px 30px;
             font-size: 1.2em;
@@ -52,12 +51,20 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Button hover effect */
         .button:hover {
-            background-color: #ff5c8d;
+            background-color: #005bb5;
         }
 
-        /* Footer styling */
+        .profile-list, .achievements {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .achievements canvas {
+            margin: 20px auto;
+        }
+
         footer {
             position: absolute;
             bottom: 10px;
@@ -69,13 +76,143 @@
     </style>
 </head>
 <body>
+    <canvas class="snow"></canvas>
     <div class="content">
         <h1>Welcome to My Website</h1>
-        <p>I am Manikanta Ama</p>
-        <a href="https://codolio.com/profile/manikanta_1" class="button">Visit My Profile</a>
+        <a id="profileButton" class="button">Visit My Profiles</a>
+
+        <!-- Profile List -->
+        <div class="profile-list">
+            <h2>Choose a Profile</h2>
+            <ul>
+                <li><a href="#" onclick="showAchievements('LeetCode')">LeetCode</a></li>
+                <li><a href="#" onclick="showAchievements('GeeksforGeeks')">GeeksforGeeks</a></li>
+                <li><a href="#" onclick="showAchievements('CodeChef')">CodeChef</a></li>
+                <li><a href="#" onclick="showAchievements('AtCoder')">AtCoder</a></li>
+                <li><a href="#" onclick="showAchievements('TopCoder')">TopCoder</a></li>
+                <li><a href="#" onclick="showAchievements('HackerRank')">HackerRank</a></li>
+            </ul>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="achievements">
+            <h2 id="achievementTitle"></h2>
+            <canvas id="chart" width="400" height="400"></canvas>
+            <table id="achievementTable">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
     </div>
     <footer>
         All Rights Reserved © Manikanta Venkateswarlu 2024
     </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Snow effect
+        const snowCanvas = document.querySelector('.snow');
+        const ctx = snowCanvas.getContext('2d');
+        let particles = [];
+        function resize() {
+            snowCanvas.width = window.innerWidth;
+            snowCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        function createSnowflakes() {
+            particles = Array.from({ length: 200 }, () => ({
+                x: Math.random() * snowCanvas.width,
+                y: Math.random() * snowCanvas.height,
+                r: Math.random() * 3 + 1,
+                d: Math.random() * 1
+            }));
+        }
+        createSnowflakes();
+
+        function drawSnowflakes() {
+            ctx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            particles.forEach(p => {
+                ctx.moveTo(p.x, p.y);
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+            });
+            ctx.fill();
+            moveSnowflakes();
+        }
+
+        function moveSnowflakes() {
+            particles.forEach(p => {
+                p.y += p.d;
+                if (p.y > snowCanvas.height) {
+                    p.y = 0;
+                    p.x = Math.random() * snowCanvas.width;
+                }
+            });
+        }
+
+        setInterval(drawSnowflakes, 33);
+
+        // Interactive Sections
+        const profileButton = document.getElementById('profileButton');
+        const profileList = document.querySelector('.profile-list');
+        const achievements = document.querySelector('.achievements');
+        const chartElement = document.getElementById('chart').getContext('2d');
+        const achievementTitle = document.getElementById('achievementTitle');
+        const achievementTable = document.querySelector('#achievementTable tbody');
+        let chart;
+
+        profileButton.addEventListener('click', () => {
+            profileButton.style.display = 'none';
+            profileList.style.display = 'block';
+        });
+
+        function showAchievements(platform) {
+            profileList.style.display = 'none';
+            achievements.style.display = 'block';
+            achievementTitle.textContent = `${platform} Achievements`;
+
+            const data = getAchievementsData(platform);
+            if (chart) chart.destroy();
+            chart = new Chart(chartElement, {
+                type: 'pie',
+                data: {
+                    labels: data.categories,
+                    datasets: [{
+                        label: 'Achievements',
+                        data: data.scores,
+                        backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56'],
+                    }]
+                }
+            });
+
+            achievementTable.innerHTML = data.categories.map((cat, index) => `
+                <tr>
+                    <td>${cat}</td>
+                    <td>${data.scores[index]}</td>
+                </tr>
+            `).join('');
+        }
+
+        function getAchievementsData(platform) {
+            // Sample data; replace with real data if available
+            const achievements = {
+                LeetCode: { categories: ['Problems Solved', 'Contests', 'Badges'], scores: [150, 20, 5] },
+                GeeksforGeeks: { categories: ['Articles', 'Challenges', 'Problems'], scores: [10, 15, 100] },
+                CodeChef: { categories: ['Ratings', 'Problems Solved', 'Contests'], scores: [1800, 200, 15] },
+                AtCoder: { categories: ['Problems Solved', 'Contests', 'Rank'], scores: [80, 10, 900] },
+                TopCoder: { categories: ['Challenges', 'Ratings', 'Awards'], scores: [20, 2200, 3] },
+                HackerRank: { categories: ['Badges', 'Challenges', 'Certifications'], scores: [10, 50, 3] }
+            };
+            return achievements[platform];
+        }
+    </script>
 </body>
 </html>
