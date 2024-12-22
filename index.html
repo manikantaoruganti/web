@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manikanta's Profiles</title>
     <style>
-        /* Reset and General Styles */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -14,64 +14,69 @@
 
         body {
             font-family: 'Poppins', sans-serif;
+            background: #0f0c29; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29); 
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29); 
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
             overflow: hidden;
-            background: linear-gradient(120deg, #1a2a6c, #b21f1f, #fdbb2d);
-            background-size: 400% 400%;
-            animation: gradientMove 10s infinite;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         .container {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            color: white;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 30px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
         }
 
         .buttons {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .btn {
             text-decoration: none;
-            font-size: 1.2rem;
+            padding: 15px 30px;
+            font-size: 1rem;
             font-weight: bold;
             color: white;
-            padding: 12px 25px;
+            background: #141E30;
+            border: 2px solid #141E30;
             border-radius: 50px;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
         }
 
         .btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background: #302b63;
+            border-color: #f39c12;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.5);
         }
 
-        /* Buttons with unique colors */
+        /* Different Colors for Each Button */
         .leetcode { background: #f89f1b; }
         .hackerrank { background: #1ba94c; }
         .gfg { background: #2f9e44; }
@@ -79,12 +84,20 @@
         .codechef { background: #68217a; }
         .codeforces { background: #1f8dd6; }
         .topcoder { background: #29a19c; }
+
+        .btn:hover.leetcode { box-shadow: 0 8px 20px rgba(248, 159, 27, 0.5); }
+        .btn:hover.hackerrank { box-shadow: 0 8px 20px rgba(27, 169, 76, 0.5); }
+        .btn:hover.gfg { box-shadow: 0 8px 20px rgba(47, 158, 68, 0.5); }
+        .btn:hover.atcoder { box-shadow: 0 8px 20px rgba(0, 58, 140, 0.5); }
+        .btn:hover.codechef { box-shadow: 0 8px 20px rgba(104, 33, 122, 0.5); }
+        .btn:hover.codeforces { box-shadow: 0 8px 20px rgba(31, 141, 214, 0.5); }
+        .btn:hover.topcoder { box-shadow: 0 8px 20px rgba(41, 161, 156, 0.5); }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>I am Manikanta</h1>
-        <p>You can visit my profiles here:</p>
+        <p>Click on the buttons below to visit my profiles:</p>
         <div class="buttons">
             <a href="https://leetcode.com/orugantimanikan1" target="_blank" class="btn leetcode">Leetcode</a>
             <a href="https://www.hackerrank.com/orugantimanikan1" target="_blank" class="btn hackerrank">Hackerrank</a>
