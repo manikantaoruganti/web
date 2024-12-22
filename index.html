@@ -1,5 +1,4 @@
-
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,16 +8,63 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
+            font-family: 'Arial', sans-serif;
             background-color: #000;
             color: #fff;
+            overflow: hidden;
             position: relative;
+            height: 100vh;
+            background-image: linear-gradient(135deg, rgba(0, 0, 50, 0.5), rgba(0, 50, 100, 0.5));
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-top: 20%;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .button {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            border: none;
+            color: white;
+            padding: 16px 30px;
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        }
+
+        .profiles-container {
+            text-align: center;
+        }
+
+        .profiles-container a {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 15px;
+            font-size: 18px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .profiles-container a:hover {
+            color: #ff4b2b;
+            text-decoration: underline;
         }
 
         .snowflake {
             position: absolute;
-            top: -10px;
             color: #fff;
             font-size: 1.5em;
             user-select: none;
@@ -28,68 +74,55 @@
 
         @keyframes fall {
             0% {
-                transform: translateY(0);
+                transform: translateY(-10px);
             }
             100% {
                 transform: translateY(100vh);
             }
         }
 
-        .container {
-            text-align: center;
-            margin-top: 20%;
+        .intro-text {
+            font-size: 1.5em;
+            margin-top: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
 
-        .button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 14px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 12px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-
-        .button-container {
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Hi, I'm Manikanta!</h1>
-        <p>Welcome to my personal page. You can visit my coding profiles here:</p>
-        <div class="button-container">
-            <button class="button" onclick="window.location.href='https://www.geeksforgeeks.org/profile/orugantimanikanta/'">Profiles</button>
+        <h1>Hello, I'm Manikanta!</h1>
+        <p class="intro-text">You can visit my profiles here:</p>
+
+        <div class="profiles-container">
+            <button class="button" onclick="window.location.href='https://profiles.topcoder.com/manikanta_1'">Topcoder</button>
+            <button class="button" onclick="window.location.href='https://atcoder.jp/users/manikanta_01'">Atcoder</button>
+            <button class="button" onclick="window.location.href='https://www.geeksforgeeks.org/user/orugantimanikanta/'">GeeksforGeeks</button>
+            <button class="button" onclick="window.location.href='https://leetcode.com/u/orugantimanikan1/'">Leetcode</button>
+            <button class="button" onclick="window.location.href='https://www.hackerrank.com/profile/orugantimanikan1'">Hackerrank</button>
+            <button class="button" onclick="window.location.href='https://codeforces.com/profile/orugantimanikanta'">Codeforces</button>
+            <button class="button" onclick="window.location.href='https://www.codechef.com/users/mani24022005'">Codechef</button>
         </div>
     </div>
 
     <script>
-        // Create snowflakes
+        // Create snowflakes animation
         function createSnowflakes() {
-            const numSnowflakes = 50;
+            const numSnowflakes = 70;
             for (let i = 0; i < numSnowflakes; i++) {
                 const snowflake = document.createElement('div');
                 snowflake.classList.add('snowflake');
                 snowflake.style.left = `${Math.random() * 100}vw`;
-                snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                snowflake.style.animationDelay = `${Math.random() * 2}s`;
+                snowflake.style.animationDuration = `${Math.random() * 3 + 3}s`;
+                snowflake.style.animationDelay = `${Math.random() * 3}s`;
                 snowflake.innerHTML = '❄';
                 document.body.appendChild(snowflake);
             }
         }
-        
+
         createSnowflakes();
     </script>
+
 </body>
 </html>
