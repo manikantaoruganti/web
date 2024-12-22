@@ -10,41 +10,46 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('https://via.placeholder.com/1920x1080.png?text=Winter+Background') no-repeat center center fixed;
+            background: url('https://via.placeholder.com/1920x1080.png?text=Winter+Scene') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             text-align: center;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
 
         header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin: 0.5em 0;
+            color: #00bfff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
         header p {
-            font-size: 1.2em;
+            font-size: 1.5em;
             margin-bottom: 20px;
+            color: #f0f8ff;
+            font-weight: 300;
         }
 
         .profile-btn {
             background-color: #1e90ff;
             color: #fff;
             font-size: 1.2em;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .profile-btn:hover {
             background-color: #4682b4;
+            transform: scale(1.1);
         }
 
         .profiles {
@@ -58,18 +63,36 @@
         }
 
         li {
-            margin: 10px 0;
+            margin: 12px 0;
         }
 
         .profile-link {
             text-decoration: none;
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #ff6347;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .profile-link:hover {
             color: #ff4500;
+            transform: translateX(5px);
+        }
+
+        .intro {
+            font-size: 2em;
+            font-weight: 500;
+            margin-top: 30px;
+            color: #add8e6;
+        }
+
+        .heading {
+            font-size: 2.2em;
+            margin-top: 40px;
+            color: #ffffff;
+            text-decoration: underline;
+            text-transform: uppercase;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -77,11 +100,12 @@
     <div class="container">
         <header>
             <h1>Welcome, I'm Manikanta</h1>
-            <p>Visit my profiles below:</p>
+            <p class="intro">I am Manikanta. You can visit my profiles here:</p>
             <button class="profile-btn" id="profile-btn">Profiles</button>
         </header>
         
         <div class="profiles" id="profiles-section">
+            <div class="heading">My Profiles:</div>
             <ul>
                 <li><a href="https://profiles.topcoder.com/manikanta_1" class="profile-link">TopCoder</a></li>
                 <li><a href="https://atcoder.jp/users/manikanta_01" class="profile-link">AtCoder</a></li>
