@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Website</title>
+    <style>
+        /* Create a beautiful moving background using a gradient animation */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff6a00, #ee0979, #ff00ff, #6a00ff);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        /* Keyframes for the background animation */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Center the content with a transparent background and some styling */
+        .content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .button {
+            background-color: #ff0077;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .button:hover {
+            background-color: #ff5c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to My Website</h1>
+        <p>I am Manikanta Ama</p>
+        <a href="https://codolio.com/profile/manikanta_1" class="button">Visit My Profile</a>
+    </div>
+</body>
+</html>
