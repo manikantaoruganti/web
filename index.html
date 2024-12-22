@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
             background: linear-gradient(to bottom, #74ebd5, #acb6e5);
         }
 
@@ -27,11 +27,12 @@
             z-index: 2;
             text-align: center;
             color: white;
+            position: relative;
         }
 
         h1 {
             font-size: 3em;
-            margin-bottom: 10px;
+            margin-top: 50px;
         }
 
         p {
@@ -48,6 +49,7 @@
             cursor: pointer;
             margin: 10px;
             color: white;
+            text-decoration: none;
             transition: transform 0.3s ease;
         }
 
@@ -61,70 +63,6 @@
         .atcoder { background-color: #007acb; }
         .topcoder { background-color: #29a7e1; }
         .hackerrank { background-color: #2ea94c; }
-
-        /* Horizontal Slides */
-        .slides {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            z-index: 3;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slides.active {
-            display: block;
-        }
-
-        .slide-content {
-            width: 80%;
-            text-align: center;
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-        }
-
-        .slide {
-            flex: 0 0 100%;
-            scroll-snap-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slide h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .slide p {
-            font-size: 1.5em;
-        }
-
-        .slide a {
-            color: #f89f1b;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5em;
-            color: white;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -132,58 +70,15 @@
     <div class="content">
         <h1>Hi, I am Manikanta</h1>
         <p>You can find my profiles here:</p>
-        <button class="button leetcode" onclick="showSlides('LeetCode')">LeetCode</button>
-        <button class="button gfg" onclick="showSlides('GeeksforGeeks')">GeeksforGeeks</button>
-        <button class="button codechef" onclick="showSlides('CodeChef')">CodeChef</button>
-        <button class="button atcoder" onclick="showSlides('AtCoder')">AtCoder</button>
-        <button class="button topcoder" onclick="showSlides('TopCoder')">TopCoder</button>
-        <button class="button hackerrank" onclick="showSlides('HackerRank')">HackerRank</button>
-    </div>
-
-    <div class="slides" id="slides">
-        <span class="close" onclick="hideSlides()">×</span>
-        <div class="slide-content" id="slideContent">
-            <!-- Dynamic Slides Content Here -->
-        </div>
+        <a href="https://leetcode.com/u/orugantimanikan1/" class="button leetcode" target="_blank">LeetCode</a>
+        <a href="https://www.geeksforgeeks.org/user/orugantimanikanta/" class="button gfg" target="_blank">GeeksforGeeks</a>
+        <a href="https://www.codechef.com/users/mani24022005" class="button codechef" target="_blank">CodeChef</a>
+        <a href="https://atcoder.jp/users/manikanta_01" class="button atcoder" target="_blank">AtCoder</a>
+        <a href="https://profiles.topcoder.com/manikanta_1" class="button topcoder" target="_blank">TopCoder</a>
+        <a href="https://www.hackerrank.com/profile/orugantimanikan1" class="button hackerrank" target="_blank">HackerRank</a>
     </div>
 
     <script>
-        const profiles = {
-            LeetCode: [
-                { title: "Profile", content: `<a href="https://leetcode.com/u/orugantimanikan1/" target="_blank">Visit LeetCode</a>` },
-                { title: "Problems Solved", content: "150 Problems Solved" },
-                { title: "Badges", content: "5 Achievements Earned" },
-            ],
-            GeeksforGeeks: [
-                { title: "Profile", content: `<a href="https://www.geeksforgeeks.org/user/orugantimanikanta/" target="_blank">Visit GFG</a>` },
-                { title: "Articles", content: "10 Published Articles" },
-                { title: "Problems Solved", content: "120 Questions Solved" },
-            ],
-            CodeChef: [
-                { title: "Profile", content: `<a href="https://www.codechef.com/users/mani24022005" target="_blank">Visit CodeChef</a>` },
-                { title: "Rating", content: "1800" },
-                { title: "Problems Solved", content: "200" },
-            ],
-        };
-
-        function showSlides(profile) {
-            const slideContent = document.getElementById('slideContent');
-            slideContent.innerHTML = '';
-
-            profiles[profile].forEach(slide => {
-                const slideElement = document.createElement('div');
-                slideElement.classList.add('slide');
-                slideElement.innerHTML = `<h2>${slide.title}</h2><p>${slide.content}</p>`;
-                slideContent.appendChild(slideElement);
-            });
-
-            document.getElementById('slides').classList.add('active');
-        }
-
-        function hideSlides() {
-            document.getElementById('slides').classList.remove('active');
-        }
-
         // Snow Effect
         const canvas = document.querySelector('.snow');
         const ctx = canvas.getContext('2d');
