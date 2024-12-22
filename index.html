@@ -5,143 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manikanta's Profiles</title>
     <style>
-        /* Global styles */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
 
-        /* Winter-themed snow background */
         body {
-            height: 100vh;
+            font-family: 'Arial', sans-serif;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #1e3c72; /* Winter blue color */
-            background: linear-gradient(to right, #1e3c72, #2a5298); /* Gradient winter sky */
-            position: relative;
         }
 
-        /* Snowfall effect */
-        .snowflakes {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            pointer-events: none;
-            z-index: 9999;
+        .background {
+            position: fixed;
             width: 100%;
             height: 100%;
+            background: linear-gradient(120deg, #00c6ff, #0072ff);
+            animation: backgroundMove 6s infinite alternate;
+            z-index: -1;
         }
 
-        .snowflakes div {
-            position: absolute;
-            background-color: #fff;
-            opacity: 0.8;
-            pointer-events: none;
-            animation: snowfall 10s linear infinite;
+        @keyframes backgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 200% 200%; }
         }
 
-        @keyframes snowfall {
-            0% {
-                transform: translateY(-10%) rotate(0deg);
-            }
-            100% {
-                transform: translateY(110%) rotate(360deg);
-            }
-        }
-
-        /* Content box */
         .content {
             text-align: center;
             color: white;
-            z-index: 1;
-            position: relative;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.6); /* Slight black background to make text readable */
-            border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 10%;
         }
 
-        /* Title and description */
         h1 {
-            font-size: 3.5em;
-            margin-bottom: 0.5em;
-            letter-spacing: 2px;
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
 
         p {
-            font-size: 1.4em;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
 
-        /* Button container */
         .buttons {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
         }
 
-        /* Button styles */
-        .button {
+        .btn {
             text-decoration: none;
-            padding: 15px 30px;
-            font-size: 1.3em;
-            background: linear-gradient(135deg, #f7797d, #fceabb); /* Colorful gradient background */
-            color: #fff;
-            border-radius: 30px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, #fceabb, #f7797d);
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .button:active {
-            transform: translateY(2px);
-        }
-
-        .button:focus {
-            outline: none;
-        }
-
+        .leetcode { background: #f89f1b; }
+        .hackerrank { background: #1ba94c; }
+        .gfg { background: #2f9e44; }
+        .atcoder { background: #003a8c; }
+        .codechef { background: #68217a; }
+        .codeforces { background: #1f8dd6; }
+        .topcoder { background: #29a19c; }
     </style>
 </head>
 <body>
-    <!-- Snowflakes animation container -->
-    <div class="snowflakes">
-        <!-- Add multiple snowflakes with random size and positioning -->
-        <div style="left: 10%; width: 10px; height: 10px; animation-duration: 8s;"></div>
-        <div style="left: 20%; width: 15px; height: 15px; animation-duration: 12s;"></div>
-        <div style="left: 30%; width: 12px; height: 12px; animation-duration: 10s;"></div>
-        <div style="left: 40%; width: 8px; height: 8px; animation-duration: 7s;"></div>
-        <div style="left: 50%; width: 10px; height: 10px; animation-duration: 6s;"></div>
-        <div style="left: 60%; width: 14px; height: 14px; animation-duration: 15s;"></div>
-        <div style="left: 70%; width: 9px; height: 9px; animation-duration: 13s;"></div>
-        <div style="left: 80%; width: 11px; height: 11px; animation-duration: 11s;"></div>
-        <div style="left: 90%; width: 16px; height: 16px; animation-duration: 9s;"></div>
-    </div>
-
-    <!-- Main content -->
+    <div class="background"></div>
     <div class="content">
-        <h1>Hello, I am Manikanta</h1>
+        <h1>I am Manikanta</h1>
         <p>You can visit my profiles here:</p>
         <div class="buttons">
-            <a href="https://profiles.topcoder.com/manikanta_1" class="button">Topcoder</a>
-            <a href="https://atcoder.jp/users/manikanta_01" class="button">Atcoder</a>
-            <a href="https://www.geeksforgeeks.org/user/orugantimanikanta/" class="button">GeeksforGeeks</a>
-            <a href="https://leetcode.com/u/orugantimanikan1/" class="button">Leetcode</a>
-            <a href="https://www.hackerrank.com/profile/orugantimanikan1" class="button">Hackerrank</a>
-            <a href="https://codeforces.com/profile/orugantimanikanta" class="button">Codeforces</a>
-            <a href="https://www.codechef.com/users/mani24022005" class="button">Codechef</a>
+            <a href="https://leetcode.com/orugantimanikan1" target="_blank" class="btn leetcode">Leetcode</a>
+            <a href="https://www.hackerrank.com/orugantimanikan1" target="_blank" class="btn hackerrank">Hackerrank</a>
+            <a href="https://auth.geeksforgeeks.org/user/orugantimanikanta" target="_blank" class="btn gfg">GeeksforGeeks</a>
+            <a href="https://atcoder.jp/users/manikanta_01" target="_blank" class="btn atcoder">Atcoder</a>
+            <a href="https://www.codechef.com/users/mani24022005" target="_blank" class="btn codechef">Codechef</a>
+            <a href="https://codeforces.com/profile/orugantimanikanta" target="_blank" class="btn codeforces">Codeforces</a>
+            <a href="https://www.topcoder.com/members/manikanta_1" target="_blank" class="btn topcoder">Topcoder</a>
         </div>
     </div>
 </body>
