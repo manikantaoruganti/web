@@ -1,128 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manikanta's Profile</title>
-    <style>
-        /* General styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('https://via.placeholder.com/1920x1080.png?text=Winter+Scene') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            text-align: center;
-        }
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+/* Moving winter background */
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
 
-        header h1 {
-            font-size: 3.5em;
-            margin: 0.5em 0;
-            color: #00bfff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
+.background {
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: snow 10s linear infinite;
+}
 
-        header p {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            color: #f0f8ff;
-            font-weight: 300;
-        }
+@keyframes snow {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
 
-        .profile-btn {
-            background-color: #1e90ff;
-            color: #fff;
-            font-size: 1.2em;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+/* Content styling */
+.content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
 
-        .profile-btn:hover {
-            background-color: #4682b4;
-            transform: scale(1.1);
-        }
+h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
 
-        .profiles {
-            display: none;
-            margin-top: 30px;
-        }
+p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+}
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+/* Button styling */
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        li {
-            margin: 12px 0;
-        }
+.button {
+    text-decoration: none;
+    padding: 15px 30px;
+    margin: 10px;
+    background: linear-gradient(45deg, #ff6ec7, #ff9a8b);
+    color: white;
+    font-size: 1.2em;
+    border-radius: 30px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+}
 
-        .profile-link {
-            text-decoration: none;
-            font-size: 1.8em;
-            color: #ff6347;
-            font-weight: 500;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
 
-        .profile-link:hover {
-            color: #ff4500;
-            transform: translateX(5px);
-        }
+.button:active {
+    transform: scale(1.05);
+}
 
-        .intro {
-            font-size: 2em;
-            font-weight: 500;
-            margin-top: 30px;
-            color: #add8e6;
-        }
+.button:focus {
+    outline: none;
+}
 
-        .heading {
-            font-size: 2.2em;
-            margin-top: 40px;
-            color: #ffffff;
-            text-decoration: underline;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Welcome, I'm Manikanta</h1>
-            <p class="intro">I am Manikanta. You can visit my profiles here:</p>
-            <button class="profile-btn" id="profile-btn">Profiles</button>
-        </header>
-        
-        <div class="profiles" id="profiles-section">
-            <div class="heading">My Profiles:</div>
-            <ul>
-                <li><a href="https://profiles.topcoder.com/manikanta_1" class="profile-link">TopCoder</a></li>
-                <li><a href="https://atcoder.jp/users/manikanta_01" class="profile-link">AtCoder</a></li>
-                <li><a href="https://www.geeksforgeeks.org/user/orugantimanikanta/" class="profile-link">GeeksforGeeks</a></li>
-                <li><a href="https://leetcode.com/u/orugantimanikan1/" class="profile-link">LeetCode</a></li>
-                <li><a href="https://www.hackerrank.com/profile/orugantimanikan1" class="profile-link">HackerRank</a></li>
-                <li><a href="https://codeforces.com/profile/orugantimanikanta" class="profile-link">Codeforces</a></li>
-                <li><a href="https://www.codechef.com/users/mani24022005" class="profile-link">CodeChef</a></li>
-            </ul>
-        </div>
-    </div>
+/* Snowfall effect */
+@keyframes snowfall {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 100%;
+    }
+}
 
-    <script>
-        document.getElementById("profile-btn").addEventListener("click", function() {
-            const profilesSection = document.getElementById("profiles-section");
-            profilesSection.style.display = profilesSection.style.display === "block" ? "none" : "block";
-        });
-    </script>
-</body>
-</html>
+.snowflakes {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    animation: snowfall 5s linear infinite;
+    font-size: 2em;
+    color: white;
+}
