@@ -40,6 +40,7 @@
             height: 100%;
             pointer-events: none;
             overflow: hidden;
+            z-index: 1;
         }
 
         .snowflake {
@@ -131,9 +132,7 @@
 </head>
 <body>
     <!-- Snow Animation -->
-    <div class="snow">
-        <!-- Snowflakes generated dynamically with JavaScript -->
-    </div>
+    <div class="snow"></div>
 
     <div class="container">
         <h1>I am Manikanta</h1>
@@ -159,16 +158,16 @@
             snowflake.style.left = Math.random() * 100 + 'vw';
             snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
             snowflake.style.opacity = Math.random();
-            snowflake.style.transform = `scale(${Math.random() * 0.8 + 0.5})`;
+            snowflake.style.width = snowflake.style.height = Math.random() * 10 + 5 + 'px';
             snowContainer.appendChild(snowflake);
 
-            // Remove snowflake after it falls
+            // Remove snowflake after animation
             setTimeout(() => {
                 snowflake.remove();
             }, 8000);
         }
 
-        setInterval(createSnowflake, 100);
+        setInterval(createSnowflake, 50);
     </script>
 </body>
 </html>
