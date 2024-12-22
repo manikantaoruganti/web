@@ -1,4 +1,5 @@
-            <!DOCTYPE html>
+
+          <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,13 +15,14 @@
             background: linear-gradient(to bottom, #74ebd5, #acb6e5);
         }
 
+        /* Ensure canvas is behind all content */
         canvas.snow {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: -1;
         }
 
         .content {
