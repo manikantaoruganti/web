@@ -1,18 +1,18 @@
 
-          <!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manikanta's Profiles</title>
     <style>
-        /* Winter-themed moving background */
+        /* Lightened Winter-themed moving background */
         body, html {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             overflow-x: hidden;
-            background: linear-gradient(to bottom, #74ebd5, #acb6e5);
+            background: linear-gradient(to bottom, #e0f7fa, #80d8ff);
         }
 
         /* Ensure canvas is behind all content */
@@ -28,8 +28,9 @@
         .content {
             z-index: 2;
             text-align: center;
-            color: white;
+            color: #000; /* Set text to black for better contrast */
             position: relative;
+            margin-top: 50px;
         }
 
         h1 {
@@ -42,7 +43,7 @@
             margin-bottom: 30px;
         }
 
-        /* Profile buttons with platform-specific styling */
+        /* Profile buttons with improved visibility */
         .button {
             padding: 15px 30px;
             font-size: 1.2em;
@@ -52,11 +53,13 @@
             margin: 10px;
             color: white;
             text-decoration: none;
-            transition: transform 0.3s ease;
+            background-color: #616161; /* Neutral button color */
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .button:hover {
             transform: scale(1.1);
+            background-color: #424242; /* Slightly darker on hover */
         }
 
         .leetcode { background-color: #f89f1b; }
@@ -100,7 +103,7 @@
 
         function drawSnowflakes() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)'; /* Transparent white snow */
             snowflakes.forEach(flake => {
                 ctx.beginPath();
                 ctx.arc(flake.x, flake.y, flake.r, 0, Math.PI * 2);
