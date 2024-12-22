@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+               <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,9 +15,10 @@
         body {
             font-family: 'Poppins', sans-serif;
             overflow: hidden;
-            background: black; /* Changed to solid black */
+            background: black; /* Solid black background */
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
@@ -120,6 +121,17 @@
         .btn:hover.codechef { box-shadow: 0 8px 20px rgba(104, 33, 122, 0.5); }
         .btn:hover.codeforces { box-shadow: 0 8px 20px rgba(31, 141, 214, 0.5); }
         .btn:hover.topcoder { box-shadow: 0 8px 20px rgba(41, 161, 156, 0.5); }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #f5f5f5;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8);
+            z-index: 2;
+        }
     </style>
 </head>
 <body>
@@ -139,6 +151,8 @@
             <a href="https://www.topcoder.com/members/manikanta_1" target="_blank" class="btn topcoder">Topcoder</a>
         </div>
     </div>
+
+    <footer>Copyright &copy; Manikanta Venkateswarlu 2024</footer>
 
     <script>
         // JavaScript to create snowflakes
