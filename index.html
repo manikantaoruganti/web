@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Coding Journey</title>
+    <title>Manikanta's Journey</title>
     <style>
         /* Winter-themed moving background */
         body, html {
-            height: 100%;
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background: linear-gradient(to bottom, #74ebd5, #acb6e5);
-            overflow: hidden;
         }
-        
+
         canvas.snow {
             position: absolute;
             top: 0;
@@ -27,16 +27,20 @@
             z-index: 1;
         }
 
-        /* Main content styling */
         .content {
+            z-index: 2;
             text-align: center;
             color: white;
-            z-index: 2;
         }
 
         h1 {
             font-size: 3em;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
         }
 
         .button {
@@ -49,76 +53,115 @@
             cursor: pointer;
             text-decoration: none;
             transition: background-color 0.3s ease;
+            margin: 10px;
         }
 
         .button:hover {
             background-color: #005bb5;
         }
 
-        .profile-list, .achievements {
+        .slides {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 100%;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .slide {
             display: none;
             text-align: center;
-            margin-top: 20px;
+            padding: 20px;
         }
 
-        .achievements canvas {
-            margin: 20px auto;
+        .slide.active {
+            display: block;
         }
 
-        footer {
+        .slide h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .slide p {
+            font-size: 1.5em;
+        }
+
+        .close {
             position: absolute;
-            bottom: 10px;
-            text-align: center;
-            width: 100%;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5em;
             color: white;
-            font-size: 0.9em;
+            cursor: pointer;
+            z-index: 4;
         }
     </style>
 </head>
 <body>
     <canvas class="snow"></canvas>
     <div class="content">
-        <h1>Welcome to My Website</h1>
-        <a id="profileButton" class="button">Visit My Profiles</a>
+        <h1>Hi, I am Manikanta</h1>
+        <p>You can find my profiles here:</p>
+        <button class="button" onclick="showSlides('LeetCode')">LeetCode</button>
+        <button class="button" onclick="showSlides('GeeksforGeeks')">GeeksforGeeks</button>
+        <button class="button" onclick="showSlides('CodeChef')">CodeChef</button>
+        <button class="button" onclick="showSlides('AtCoder')">AtCoder</button>
+        <button class="button" onclick="showSlides('TopCoder')">TopCoder</button>
+        <button class="button" onclick="showSlides('HackerRank')">HackerRank</button>
+    </div>
 
-        <!-- Profile List -->
-        <div class="profile-list">
-            <h2>Choose a Profile</h2>
-            <ul>
-                <li><a href="#" onclick="showAchievements('LeetCode')">LeetCode</a></li>
-                <li><a href="#" onclick="showAchievements('GeeksforGeeks')">GeeksforGeeks</a></li>
-                <li><a href="#" onclick="showAchievements('CodeChef')">CodeChef</a></li>
-                <li><a href="#" onclick="showAchievements('AtCoder')">AtCoder</a></li>
-                <li><a href="#" onclick="showAchievements('TopCoder')">TopCoder</a></li>
-                <li><a href="#" onclick="showAchievements('HackerRank')">HackerRank</a></li>
-            </ul>
+    <div class="slides" id="slides">
+        <span class="close" onclick="hideSlides()">×</span>
+        <div class="slide" id="LeetCode">
+            <h2>LeetCode</h2>
+            <p>Problems Solved: 150</p>
+            <p>Rating: 2000</p>
+            <p>Badges: 5</p>
         </div>
-
-        <!-- Achievements Section -->
-        <div class="achievements">
-            <h2 id="achievementTitle"></h2>
-            <canvas id="chart" width="400" height="400"></canvas>
-            <table id="achievementTable">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+        <div class="slide" id="GeeksforGeeks">
+            <h2>GeeksforGeeks</h2>
+            <p>Articles Published: 10</p>
+            <p>Challenges Completed: 15</p>
+            <p>Problems Solved: 100</p>
+        </div>
+        <div class="slide" id="CodeChef">
+            <h2>CodeChef</h2>
+            <p>Rating: 1800</p>
+            <p>Problems Solved: 200</p>
+            <p>Contests Participated: 15</p>
+        </div>
+        <div class="slide" id="AtCoder">
+            <h2>AtCoder</h2>
+            <p>Problems Solved: 80</p>
+            <p>Contests Participated: 10</p>
+            <p>Rank: 900</p>
+        </div>
+        <div class="slide" id="TopCoder">
+            <h2>TopCoder</h2>
+            <p>Challenges Completed: 20</p>
+            <p>Rating: 2200</p>
+            <p>Awards: 3</p>
+        </div>
+        <div class="slide" id="HackerRank">
+            <h2>HackerRank</h2>
+            <p>Badges: 10</p>
+            <p>Challenges Completed: 50</p>
+            <p>Certifications: 3</p>
         </div>
     </div>
-    <footer>
-        All Rights Reserved © Manikanta Venkateswarlu 2024
-    </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
         // Snow effect
         const snowCanvas = document.querySelector('.snow');
         const ctx = snowCanvas.getContext('2d');
         let particles = [];
+
         function resize() {
             snowCanvas.width = window.innerWidth;
             snowCanvas.height = window.innerHeight;
@@ -157,61 +200,19 @@
                 }
             });
         }
-
         setInterval(drawSnowflakes, 33);
 
-        // Interactive Sections
-        const profileButton = document.getElementById('profileButton');
-        const profileList = document.querySelector('.profile-list');
-        const achievements = document.querySelector('.achievements');
-        const chartElement = document.getElementById('chart').getContext('2d');
-        const achievementTitle = document.getElementById('achievementTitle');
-        const achievementTable = document.querySelector('#achievementTable tbody');
-        let chart;
-
-        profileButton.addEventListener('click', () => {
-            profileButton.style.display = 'none';
-            profileList.style.display = 'block';
-        });
-
-        function showAchievements(platform) {
-            profileList.style.display = 'none';
-            achievements.style.display = 'block';
-            achievementTitle.textContent = `${platform} Achievements`;
-
-            const data = getAchievementsData(platform);
-            if (chart) chart.destroy();
-            chart = new Chart(chartElement, {
-                type: 'pie',
-                data: {
-                    labels: data.categories,
-                    datasets: [{
-                        label: 'Achievements',
-                        data: data.scores,
-                        backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56'],
-                    }]
-                }
-            });
-
-            achievementTable.innerHTML = data.categories.map((cat, index) => `
-                <tr>
-                    <td>${cat}</td>
-                    <td>${data.scores[index]}</td>
-                </tr>
-            `).join('');
+        // Slide functionality
+        function showSlides(profileId) {
+            const slides = document.getElementById('slides');
+            slides.style.display = 'block';
+            const slide = document.getElementById(profileId);
+            Array.from(document.querySelectorAll('.slide')).forEach(s => s.classList.remove('active'));
+            slide.classList.add('active');
         }
 
-        function getAchievementsData(platform) {
-            // Sample data; replace with real data if available
-            const achievements = {
-                LeetCode: { categories: ['Problems Solved', 'Contests', 'Badges'], scores: [150, 20, 5] },
-                GeeksforGeeks: { categories: ['Articles', 'Challenges', 'Problems'], scores: [10, 15, 100] },
-                CodeChef: { categories: ['Ratings', 'Problems Solved', 'Contests'], scores: [1800, 200, 15] },
-                AtCoder: { categories: ['Problems Solved', 'Contests', 'Rank'], scores: [80, 10, 900] },
-                TopCoder: { categories: ['Challenges', 'Ratings', 'Awards'], scores: [20, 2200, 3] },
-                HackerRank: { categories: ['Badges', 'Challenges', 'Certifications'], scores: [10, 50, 3] }
-            };
-            return achievements[platform];
+        function hideSlides() {
+            document.getElementById('slides').style.display = 'none';
         }
     </script>
 </body>
