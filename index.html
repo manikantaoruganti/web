@@ -9,19 +9,30 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #000;
+            background: linear-gradient(to top, #1f3c5b, #6c8dc5);
             color: #fff;
+            height: 100vh;
             overflow: hidden;
             position: relative;
-            height: 100vh;
-            background-image: linear-gradient(135deg, rgba(0, 0, 50, 0.5), rgba(0, 50, 100, 0.5));
         }
 
         h1 {
             font-size: 3em;
+            text-align: center;
             margin-top: 20%;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .intro-text {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .profiles-container {
+            text-align: center;
+            margin-top: 30px;
         }
 
         .button {
@@ -31,7 +42,7 @@
             padding: 16px 30px;
             text-align: center;
             font-size: 18px;
-            margin: 20px 10px;
+            margin: 10px 15px;
             border-radius: 12px;
             cursor: pointer;
             display: inline-block;
@@ -43,10 +54,6 @@
             transform: scale(1.1);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             background: linear-gradient(45deg, #ff416c, #ff4b2b);
-        }
-
-        .profiles-container {
-            text-align: center;
         }
 
         .profiles-container a {
@@ -63,30 +70,22 @@
             text-decoration: underline;
         }
 
-        .snowflake {
+        .snow {
             position: absolute;
+            top: -10px;
             color: #fff;
-            font-size: 1.5em;
+            font-size: 2em;
             user-select: none;
-            z-index: 1000;
-            animation: fall linear infinite;
+            animation: fall 4s linear infinite;
+            opacity: 0.8;
+            pointer-events: none;
         }
 
         @keyframes fall {
-            0% {
-                transform: translateY(-10px);
-            }
-            100% {
+            to {
                 transform: translateY(100vh);
             }
         }
-
-        .intro-text {
-            font-size: 1.5em;
-            margin-top: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        }
-
     </style>
 </head>
 <body>
@@ -107,21 +106,21 @@
     </div>
 
     <script>
-        // Create snowflakes animation
-        function createSnowflakes() {
-            const numSnowflakes = 70;
-            for (let i = 0; i < numSnowflakes; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.classList.add('snowflake');
-                snowflake.style.left = `${Math.random() * 100}vw`;
-                snowflake.style.animationDuration = `${Math.random() * 3 + 3}s`;
-                snowflake.style.animationDelay = `${Math.random() * 3}s`;
-                snowflake.innerHTML = '❄';
-                document.body.appendChild(snowflake);
+        // Create snowdrop animation effect
+        function createSnowdrops() {
+            const numSnowdrops = 70; // Number of snowdrops
+            for (let i = 0; i < numSnowdrops; i++) {
+                const snowdrop = document.createElement('div');
+                snowdrop.classList.add('snow');
+                snowdrop.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+                snowdrop.style.animationDuration = `${Math.random() * 5 + 5}s`; // Random duration
+                snowdrop.style.animationDelay = `${Math.random() * 3}s`; // Random delay
+                snowdrop.innerHTML = '❄'; // Snowdrop character
+                document.body.appendChild(snowdrop);
             }
         }
 
-        createSnowflakes();
+        createSnowdrops();
     </script>
 
 </body>
