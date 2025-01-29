@@ -1,4 +1,4 @@
-               <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -113,6 +113,10 @@
         .codechef { background: #68217a; }
         .codeforces { background: #1f8dd6; }
         .topcoder { background: #29a19c; }
+        .interviewbit { background: #004f9e; }
+        .naukri { background: #ff5722; }
+        .codewars { background: #b1361e; }
+        .hackerearth { background: #5c2d91; }
 
         .btn:hover.leetcode { box-shadow: 0 8px 20px rgba(248, 159, 27, 0.5); }
         .btn:hover.hackerrank { box-shadow: 0 8px 20px rgba(27, 169, 76, 0.5); }
@@ -121,6 +125,10 @@
         .btn:hover.codechef { box-shadow: 0 8px 20px rgba(104, 33, 122, 0.5); }
         .btn:hover.codeforces { box-shadow: 0 8px 20px rgba(31, 141, 214, 0.5); }
         .btn:hover.topcoder { box-shadow: 0 8px 20px rgba(41, 161, 156, 0.5); }
+        .btn:hover.interviewbit { box-shadow: 0 8px 20px rgba(0, 79, 158, 0.5); }
+        .btn:hover.naukri { box-shadow: 0 8px 20px rgba(255, 87, 34, 0.5); }
+        .btn:hover.codewars { box-shadow: 0 8px 20px rgba(177, 54, 30, 0.5); }
+        .btn:hover.hackerearth { box-shadow: 0 8px 20px rgba(92, 45, 145, 0.5); }
 
         footer {
             position: absolute;
@@ -146,13 +154,16 @@
             <a href="https://www.hackerrank.com/orugantimanikan1" target="_blank" class="btn hackerrank">Hackerrank</a>
             <a href="https://auth.geeksforgeeks.org/user/orugantimanikanta" target="_blank" class="btn gfg">GeeksforGeeks</a>
             <a href="https://atcoder.jp/users/manikanta_01" target="_blank" class="btn atcoder">Atcoder</a>
-           
             <a href="https://codeforces.com/profile/manikanta_01" target="_blank" class="btn codeforces">Codeforces</a>
             <a href="https://www.topcoder.com/members/manikanta_1" target="_blank" class="btn topcoder">Topcoder</a>
+            <a href="https://www.interviewbit.com/profile/manikanta-oruganti_166/" target="_blank" class="btn interviewbit">InterviewBit</a>
+            <a href="https://www.naukri.com/code360/profile/manikantaone" target="_blank" class="btn naukri">Naukri (Code360)</a>
+            <a href="https://www.codewars.com/users/manikanta_01" target="_blank" class="btn codewars">CodeWars</a>
+            <a href="https://www.hackerearth.com/@manikanta_01/" target="_blank" class="btn hackerearth">HackerEarth</a>
         </div>
     </div>
 
-    <footer>Copyright &copy; Manikanta Venkateswarlu 2024</footer>
+    <footer id="footer"></footer>
 
     <script>
         // JavaScript to create snowflakes
@@ -167,13 +178,15 @@
             snowflake.style.width = snowflake.style.height = Math.random() * 10 + 5 + 'px';
             snowContainer.appendChild(snowflake);
 
-            // Remove snowflake after animation
             setTimeout(() => {
                 snowflake.remove();
             }, 8000);
         }
 
         setInterval(createSnowflake, 50);
+
+        // Dynamic Copyright Year
+        document.getElementById("footer").innerHTML = "Copyright &copy; Manikanta Venkateswarlu " + new Date().getFullYear();
     </script>
 </body>
 </html>
